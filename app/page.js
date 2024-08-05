@@ -26,13 +26,13 @@ export default function Home() {
   return (
     <ThemeLayout>
       <main
-        className={`flex min-h-screen flex-col items-center justify-center p-24`}
+        className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-24`}
       >
         <h1 className="text-4xl font-bold mb-8">Weather App</h1>
         <WeatherForm onSubmit={handleWeatherSubmit} />
 
         {searchHistory.length > 0 && (
-          <div className="rounded-3xl border-white border-solid border-2 max-w-lg w-full p-8 mt-4 bg-white/20  dark:bg-slate-700/20 shadow-md">
+          <div className="rounded-3xl border-white border-solid border-2 max-w-lg w-full p-4 md:p-8 mt-4 bg-white/20  dark:bg-slate-700/20 shadow-md">
             {weather && <WeatherDisplay weather={weather} />}
             {error && <ErrorMessage message={error} />}
 
@@ -49,7 +49,7 @@ export default function Home() {
                         </span>
                       </div>
                       <div className="flex gap-2 items-center">
-                        <span>
+                        <span className="text-xs opacity-50">
                           {search.timestamp.format("YYYY-MM-DD HH:mm:ss")}
                         </span>
                         {/* to be implemented */}
