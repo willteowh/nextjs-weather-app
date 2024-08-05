@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { fetchCitySuggestions } from "../services/weatherService";
 import { useDebouncedCallback } from "use-debounce";
+import { FaSearch } from "react-icons/fa";
+import LocationButton from "./LocationButton";
 
 export default function WeatherForm({ onSubmit }) {
   const [suggestions, setSuggestions] = useState([]);
@@ -22,6 +24,14 @@ export default function WeatherForm({ onSubmit }) {
       setSuggestions([]);
     }
   }, 300);
+
+  const showPosition = (position) => {
+    console.log(position)
+    onSubmit({
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+    })
+  }
 
   const handleSelect = (city) => {
     setSelectedCity(city);
@@ -43,9 +53,10 @@ export default function WeatherForm({ onSubmit }) {
 
   return (
     <>
-      <div className="relative w-full max-w-lg mx-auto">
+      <div className="relative w-full max-w-lg mx-auto flex rounded-full pl-4 items-center  bg-white/50 dark:bg-black/20">
+        <FaSearch className="text-purple-500 mr-2"  />
         <input
-          className="w-full bg-white/50 dark:bg-black/20 px-4 py-2 rounded-md"
+          className="w-full px-4 py-2  bg-transparent border-none focus:outline-none"
           type="text"
           label="location"
           placeholder="Search for a location"
@@ -66,6 +77,7 @@ export default function WeatherForm({ onSubmit }) {
             ))}
           </ul>
         )}
+        <LocationButton onGetLocation={showPosition}/>
       </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
     </>

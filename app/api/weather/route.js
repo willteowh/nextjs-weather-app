@@ -1,5 +1,3 @@
-// app/api/weather/route.js
-
 import { NextResponse } from 'next/server';
 
 const OPENWEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';

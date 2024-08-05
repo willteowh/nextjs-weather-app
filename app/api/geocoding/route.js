@@ -1,5 +1,3 @@
-// app/api/geocoding/route.js
-
 import { NextResponse } from 'next/server';
 
 const GEOCODING_API_URL = 'https://api.openweathermap.org/geo/1.0/direct';

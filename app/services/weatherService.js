@@ -1,6 +1,3 @@
-const OPENWEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';
-const GEOCODING_API_URL = 'https://api.openweathermap.org/geo/1.0/direct';
-
 export async function fetchWeatherData(lat, lon) {
   const response = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
   if (!response.ok) {
