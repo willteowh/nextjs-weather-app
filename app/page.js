@@ -1,31 +1,30 @@
 "use client";
 
+import { useEffect } from "react";
 import ThemeLayout from "./components/ThemeLayout";
 import WeatherForm from "./components/WeatherForm";
 import WeatherDisplay from "./components/WeatherDisplay";
 import ErrorMessage from "./components/ErrorMessage";
-import useWeather from "./hooks/useWeather";
-import { useEffect } from "react";
 import SearchHistory from "./components/SearchHistory";
+import useWeather from "./hooks/useWeather";
 import { useSearchHistory } from "./hooks/useSearchHistory";
 
 export default function Home() {
   const { weather, error, fetchWeather } = useWeather();
-  const { searchHistory, getSearchHistory, deleteSearchHistory } =
+  const { searchHistory, addSearchHistory, deleteSearchHistory } =
     useSearchHistory();
 
   const handleWeatherSubmit = (location) => {
     fetchWeather(location.lat, location.lon);
   };
 
-  const onSearch = (weather) => {
-    console.log(weather);
+  const getWeather = (weather) => {
     fetchWeather(weather.coord.lat, weather.coord.lon);
   };
 
   useEffect(() => {
     if (weather) {
-      getSearchHistory(weather);
+      addSearchHistory(weather);
     }
   }, [weather]);
 
@@ -45,7 +44,7 @@ export default function Home() {
             <SearchHistory
               searchHistory={searchHistory}
               onDelete={deleteSearchHistory}
-              onSearch={onSearch}
+              onQuery={getWeather}
             ></SearchHistory>
           </div>
         )}

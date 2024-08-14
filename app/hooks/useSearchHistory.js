@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
+import { MAX_SEARCH_HISTORY_LENGTH } from "../lib/constant";
 
-const MAX_HISTORY_LENGTH = 7;
 
 export const useSearchHistory = () => {
   const [searchHistory, setSearchHistory] = useState([]);
 
-  const getSearchHistory = (weather) => {
+  const addSearchHistory = (weather) => {
     const updatedList = [
       { weather, timestamp: dayjs() },
       ...searchHistory,
-    ].slice(0, MAX_HISTORY_LENGTH);
+    ].slice(0, MAX_SEARCH_HISTORY_LENGTH);
     setSearchHistory(updatedList);
   };
 
@@ -20,5 +20,5 @@ export const useSearchHistory = () => {
     setSearchHistory(updatedHistory);
   };
 
-  return { searchHistory, getSearchHistory, deleteSearchHistory };
+  return { searchHistory, addSearchHistory, deleteSearchHistory };
 };

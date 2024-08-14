@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTrash, FaSearch } from "react-icons/fa";
 
-export default function SearchHistory({searchHistory, onSearch, onDelete}) {
+export default function SearchHistory({searchHistory, onQuery, onDelete}) {
 
 
   return (
@@ -20,7 +20,7 @@ export default function SearchHistory({searchHistory, onSearch, onDelete}) {
               <span className="text-xs opacity-50">
                 {search.timestamp.format("YYYY-MM-DD HH:mm:ss")}
               </span>
-              <button className="rounded-full p-2 bg-white/30 hover:bg-white/70 transition-colors duration-200 dark:bg-black/30 dark:hover:bg-black/70" onClick={() => onSearch(search.weather)}>
+              <button className="rounded-full p-2 bg-white/30 hover:bg-white/70 transition-colors duration-200 dark:bg-black/30 dark:hover:bg-black/70" onClick={() => onQuery(search.weather)}>
                 <FaSearch></FaSearch>
               </button>
               <button className="rounded-full p-2 bg-white/30 hover:bg-white/70 transition-colors duration-200 dark:bg-black/30 dark:hover:bg-black/70" onClick={() => onDelete(index)}>
