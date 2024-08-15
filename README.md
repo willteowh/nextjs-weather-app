@@ -1,6 +1,6 @@
 ## Simple Weather App with NextJS
 
-[`Site Demo `](https://will-nextjs-weatherapp.netlify.app/)
+Demo Site: [`Link `](https://will-nextjs-weatherapp.netlify.app/)
 
 Author's note: this is a playground for the author to play with experiemental code.
 
