@@ -1,5 +1,7 @@
 ## Simple Weather App with NextJS
 
+[`Site Demo `](https://will-nextjs-weatherapp.netlify.app/)
+
 Author's note: this is a playground for the author to play with experiemental code.
 
 ---
@@ -19,4 +21,4 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
