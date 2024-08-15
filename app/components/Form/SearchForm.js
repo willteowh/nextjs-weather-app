@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchCitySuggestions } from "../services/weatherService";
+import { fetchCitySuggestions } from "@/services/weatherService";
 import { useDebouncedCallback } from "use-debounce";
 import { FaSearch } from "react-icons/fa";
 import LocationButton from "./LocationButton";
 
-export default function WeatherForm({ onSubmit }) {
+export default function SearchForm({ onSubmit }) {
   const [suggestions, setSuggestions] = useState([]);
   const [selectedCity, setSelectedCity] = useState(null);
   const [error, setError] = useState(null);

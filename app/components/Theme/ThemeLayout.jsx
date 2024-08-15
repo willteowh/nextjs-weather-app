@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import styles from '../styles/Background.module.css';
+import styles from '@/styles/Background.module.css';
 import ThemeToggleButton from './ThemeToggleButton';
 
 const ThemeLayout = ({ children }) => {

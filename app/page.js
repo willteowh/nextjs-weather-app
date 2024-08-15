@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import ThemeLayout from "./components/ThemeLayout";
-import WeatherForm from "./components/WeatherForm";
-import WeatherDisplay from "./components/WeatherDisplay";
-import ErrorMessage from "./components/ErrorMessage";
-import SearchHistory from "./components/SearchHistory";
-import useWeather from "./hooks/useWeather";
-import { useSearchHistory } from "./hooks/useSearchHistory";
+import ThemeLayout from "@/components/Theme/ThemeLayout";
+import SearchForm from "@/components/Form/SearchForm";
+import ErrorMessage from "@/components/Form/ErrorMessage";
+import WeatherDisplay from "@/components/Weather/WeatherDisplay";
+import SearchHistory from "@/components/SearchHistory/SearchHistory";
+import useWeather from "@/hooks/useWeather";
+import { useSearchHistory } from "@/hooks/useSearchHistory";
 
 export default function Home() {
   const { weather, error, fetchWeather } = useWeather();
@@ -34,7 +34,7 @@ export default function Home() {
         className={`flex min-h-screen flex-col items-center justify-center p-4 md:p-24`}
       >
         <h1 className="text-4xl font-bold mb-8">Weather App</h1>
-        <WeatherForm onSubmit={handleWeatherSubmit} />
+        <SearchForm onSubmit={handleWeatherSubmit} />
 
         {weather && (
           <div className="rounded-3xl border-white border-solid border-2 max-w-lg w-full p-4 md:p-8 mt-4 bg-white/20  dark:bg-slate-700/20 shadow-md">
