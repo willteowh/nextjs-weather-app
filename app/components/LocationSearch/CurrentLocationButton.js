@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaSpinner, FaLocationArrow } from "react-icons/fa";
 
-export default function LocationButton({ onGetLocation }) {
+export default function CurrentLocationButton({ onGetLocation }) {
   const [loading, setLoading] = useState(false);
 
   const handleGeolocationClick = () => {
