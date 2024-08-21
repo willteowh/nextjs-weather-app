@@ -40,7 +40,7 @@ export default function LocationSearch({ onLocationSelected }) {
   const handleSelect = (city) => {
     setSelectedCity(city);
     setSuggestions([]);
-    onLocationChanged(city);
+    onLocationSelected(city);
   };
 
   const processSuggestion = (places, query) => {
