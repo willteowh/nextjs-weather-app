@@ -64,14 +64,16 @@ export default function LocationSearch({ onLocationSelected }) {
           <FaSearch className="text-purple-500 mr-2" />
         )}
         <input
-          className="w-full px-4 py-2  bg-transparent border-none focus:outline-none"
+          className="w-full px-4 py-2 bg-transparent border-none focus:outline-none"
           type="text"
           label="location"
           placeholder="Search for a location"
-          onChange={(e) => fetchSuggestions(e.target.value)}
+          onChange={(e) => {
+            fetchSuggestions(e.target.value);
+          }}
         />
         {suggestions.length > 0 && (
-          <ul className="absolute top-full left-0 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-lg max-h-60 overflow-auto z-10">
+          <ul className="absolute top-full left-0 w-full backdrop-blur border border-gray-300 dark:border-gray-700 rounded-md shadow-lg max-h-60 overflow-auto z-10">
             {suggestions.map((suggestion) => (
               <li
                 key={`${suggestion.lat}_${suggestion.lon}`}
